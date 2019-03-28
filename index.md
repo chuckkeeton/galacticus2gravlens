@@ -4,4 +4,10 @@ Developed by Sean Brennan and Chuck Keeton, drawing on earlier code by Andrew Be
 
 Last updated 2019/3/27.
 
-The main code is [galacticus2gravlens.py].
+## Code
+
+The main python code is (galacticus2gravlens.py). It uses data in (root_trunc.dat).
+
+### Example 1
+
+Here is the first example.
