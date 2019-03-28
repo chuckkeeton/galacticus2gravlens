@@ -10,7 +10,7 @@ The main python code is [galacticus2gravlens.py](galacticus2gravlens.py). It use
 
 #### Example 1
 
-Here is an example that uses the python code to process the first 100 realizations using the default projection [example1.py](example1.py).
+Here is an example that uses the python code to process the first 100 realizations using the default projection ([example1.py](example1.py)).
 
 ```
 import numpy as np
@@ -34,7 +34,7 @@ lens0 = g2g.galacticus2gravlens(galdat,cosmo,npop=100,angles=[0,0])
 g2g.write_gravlens('example1/pop',lens0)
 ```
 
-Here is a bare bones gravlens input file that uses a few of the realizations to generate convergence maps [example1.in](example1.in).
+Here is a bare bones gravlens input file that uses a few of the realizations to generate convergence maps ([example1.in](example1.in)).
 
 ```
 set gridflag = 0
