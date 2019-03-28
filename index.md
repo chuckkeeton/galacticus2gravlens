@@ -6,11 +6,11 @@ Last updated 2019/3/27.
 
 ### Code
 
-The main python code is [galacticus2gravlens.py](files/galacticus2gravlens.py). It uses data in [root_trunc.dat](files/root_trunc.dat).
+The main python code is [galacticus2gravlens.py](galacticus2gravlens.py). It uses data in [root_trunc.dat](root_trunc.dat).
 
 #### Example 1
 
-Here is an example that uses the python code to process the first 100 realizations using the default projection [example1.py](files/example1.py).
+Here is an example that uses the python code to process the first 100 realizations using the default projection [example1.py](example1.py).
 
 ```
 import numpy as np
@@ -34,7 +34,7 @@ lens0 = g2g.galacticus2gravlens(galdat,cosmo,npop=100,angles=[0,0])
 g2g.write_gravlens('example1/pop',lens0)
 ```
 
-Here is a bare bones gravlens input file that uses a few of the realizations to generate convergence maps [example1.in](files/example1.in).
+Here is a bare bones gravlens input file that uses a few of the realizations to generate convergence maps [example1.in](example1.in).
 
 ```
 set gridflag = 0
@@ -53,4 +53,4 @@ quit
 
 #### Example 2
 
-Another example uses the python code to process just the first two realizations but with 10 random projections for each: [example2.py](files/example2.py) and [example2.in](files/example2.in)
+Another example uses the python code to process just the first two realizations but with 10 random projections for each: [example2.py](example2.py) and [example2.in](example2.in)
