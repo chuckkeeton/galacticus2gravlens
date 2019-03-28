@@ -2,4 +2,6 @@ This repository contains code to take semi-analytic models of galaxies from the 
 
 Developed by Sean Brennan and Chuck Keeton, drawing on earlier code by Andrew Benson and Anthony Pullen.
 
-This version 2019/3/27.
+Last updated 2019/3/27.
+
+The main code is [galacticus2gravlens.py].
