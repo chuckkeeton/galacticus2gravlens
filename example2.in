@@ -1,0 +1,12 @@
+set gridflag = 0
+
+setlens example2/proj0pop1.start
+plotkappa example2/proj0pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+setlens example2/proj1pop1.start
+plotkappa example2/proj1pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+setlens example2/proj2pop1.start
+plotkappa example2/proj2pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+quit
