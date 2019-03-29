@@ -1,8 +1,8 @@
-This repository contains code to take semi-analytic models of galaxies from the [Galacticus code](https://bitbucket.org/galacticusdev/galacticus/wiki/Home) and produce input files for gravitational lensing calculations with the [gravlens package](http://www.physics.rutgers.edu/~keeton/gravlens/2012WS).
+This repository contains code to take semi-analytic models of galaxies from the [Galacticus code](https://bitbucket.org/galacticusdev/galacticus/wiki/Home) and produce input files for gravitational lensing calculations with the [gravlens code](http://www.physics.rutgers.edu/~keeton/gravlens/2012WS).
 
 Developed by Sean Brennan and Chuck Keeton, drawing on earlier code by Andrew Benson and Anthony Pullen.
 
-Last updated 2019/3/27.
+Last updated 2019/3/28.
 
 ### Code
 
@@ -53,4 +53,45 @@ quit
 
 #### Example 2
 
-Another example uses the python code to process just the first two realizations but with 10 random projections for each: [example2.py](example2.py) and [example2.in](example2.in)
+Another example uses the python code to process just the first two realizations but with 10 random projections for each. Python ([example2.py](example2.py)):
+
+```
+import numpy as np
+import h5py
+import galacticus2gravlens as g2g
+
+# set cosmology
+cosmo = g2g.cosmology(0.5,1.0)
+print('cosmology:')
+print('Dl,Ds,Dls=',cosmo.D_l,cosmo.D_s,cosmo.D_ls)
+print('Sigma_crit= {:e}'.format(cosmo.Sigma_crit))
+
+# read galacticus file
+galfile = '../pspec/galacticus_mw19200_fsh.hdf5'
+galtmp = h5py.File(galfile,'r')
+galdat = galtmp[u'Outputs']
+
+# compute lensing parameters for a single population with
+# multiple projections
+for i in range(10):
+    lens = g2g.galacticus2gravlens(galdat,cosmo,npop=2)
+    # write parameters for gravlens
+    g2g.write_gravlens('example2/proj'+str(i)+'pop',lens)
+```
+
+Gravlens ([example2.in](example2.in)):
+
+```
+set gridflag = 0
+
+setlens example2/proj0pop1.start
+plotkappa example2/proj0pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+setlens example2/proj1pop1.start
+plotkappa example2/proj1pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+setlens example2/proj2pop1.start
+plotkappa example2/proj2pop1.fits 3 -60.0 60.0 200 -60.0 60.0 200
+
+quit
+```
